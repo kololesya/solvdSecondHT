@@ -1,35 +1,8 @@
 package entity.users;
 
-public class Patient {
-    private Long patientID;
-    private String firstName;
-    private String lastName;
+public class Patient extends Person{
     private int age;
     private char sex;
-
-    public Long getPatientID() {
-        return patientID;
-    }
-
-    public void setPatientID(Long patientID) {
-        this.patientID = patientID;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public int getAge() {
         return age;
@@ -47,10 +20,14 @@ public class Patient {
         this.sex = sex;
     }
 
-    public Patient(Long patientID, String firstName, String lastName, int age, char sex) {
-        this.patientID = patientID;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Patient(String firstName, String lastName, int age, char sex) {
+        super(firstName, lastName);
+        this.age = age;
+        this.sex = sex;
+    }
+
+    public Patient(String firstName, String lastName, Long phoneNumber, String fullAddress, int age, char sex) {
+        super(firstName, lastName, phoneNumber, fullAddress);
         this.age = age;
         this.sex = sex;
     }

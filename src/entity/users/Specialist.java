@@ -1,9 +1,7 @@
 package entity.users;
 
-public class Specialist {
+public class Specialist extends Person{
     private int specID;
-    private String firstName;
-    private String lastName;
     private String specialization;
 
     public int getSpecID() {
@@ -12,22 +10,6 @@ public class Specialist {
 
     public void setSpecID(int specID) {
         this.specID = specID;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getSpecialization() {
@@ -39,9 +21,15 @@ public class Specialist {
     }
 
     public Specialist(int specID, String firstName, String lastName, String specialization) {
+        super(firstName, lastName);
         this.specID = specID;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.specialization = specialization;
+    }
+
+    public Specialist(int specID, String firstName, Long phoneNumber,
+                       String fullAddress, String lastName, String specialization) {
+        super(firstName, lastName, phoneNumber, fullAddress);
+        this.specID = specID;
         this.specialization = specialization;
     }
 
