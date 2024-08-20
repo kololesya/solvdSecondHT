@@ -1,16 +1,7 @@
 package entity.users;
 
-public class Specialist extends Person{
-    private int specID;
+public class Specialist extends Employee{
     private String specialization;
-
-    public int getSpecID() {
-        return specID;
-    }
-
-    public void setSpecID(int specID) {
-        this.specID = specID;
-    }
 
     public String getSpecialization() {
         return specialization;
@@ -20,23 +11,25 @@ public class Specialist extends Person{
         this.specialization = specialization;
     }
 
-    public Specialist(int specID, String firstName, String lastName, String specialization) {
-        super(firstName, lastName);
-        this.specID = specID;
+    public Specialist(String fullName, String email, Long phoneNumber, double Salary, String specialization) {
+        super(fullName, email, phoneNumber, Salary);
         this.specialization = specialization;
     }
 
-    public Specialist(int specID, String firstName, Long phoneNumber,
-                       String fullAddress, String lastName, String specialization) {
-        super(firstName, lastName, phoneNumber, fullAddress);
-        this.specID = specID;
+    public Specialist(String fullName, String specialization) {
+        super(fullName);
         this.specialization = specialization;
     }
 
     @Override
     public String toString() {
-        return "Specialist: " +
-                firstName +
-                " " + lastName;
+        return "Specialist " + getFullName() + " has specialization "
+                + specialization;
+    }
+
+    @Override
+    public void performDuties() {
+        System.out.println("Specialist " + getName() +
+                " receives patients");
     }
 }

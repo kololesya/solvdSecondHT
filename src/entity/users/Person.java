@@ -1,52 +1,45 @@
 package entity.users;
 
-public class Person {
-    String firstName;
-    String lastName;
-    Long phoneNumber;
-    String fullAddress;
+abstract class Person {
+    private String fullName;
+    private String email;
+    private Long phoneNumber;
 
-    public String getFirstName() {
-        return firstName;
+    public Person(String name, String email, Long phoneNumber) {
+        this.fullName = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public Person(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Long getPhoneNumber() {
-        return phoneNumber;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getFullAddress() {
-        return fullAddress;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullAddress(String fullAddress) {
-        this.fullAddress = fullAddress;
+    public String getName() {
+        return fullName;
     }
 
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public String getEmail() {
+        return email;
     }
 
-    public Person(String firstName, String lastName, Long phoneNumber, String fullAddress) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.fullAddress = fullAddress;
+    public Long getPhoneNumber(){
+        return phoneNumber;
     }
 }

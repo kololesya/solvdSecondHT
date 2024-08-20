@@ -1,26 +1,38 @@
 package entity.visits;
 
-import java.time.LocalDate;
+import entity.date.DateOfVisits;
+
 import java.util.ArrayList;
 
 public class Schedule {
-    PlannedVisit [] plannedVisits;
+    Visit visit;
+    Visit [] visits;
 
-    public static ArrayList<LocalDate> scheduleBySpecialist(PlannedVisit [] plannedVisits, String fullName){
-        ArrayList<LocalDate> scheduleBySpecialist = new ArrayList<>();
-        for (int i = 0; i < plannedVisits.length; i++) {
-            if (plannedVisits[i].nameSpecialist(plannedVisits[i]).equals(fullName)){
-                scheduleBySpecialist.add(plannedVisits[i].plannedDate(plannedVisits[i]));
+    public Visit[] getVisits() {
+        return visits;
+    }
+
+    public Visit getVisit() {
+        return visit;
+    }
+
+    public static ArrayList<DateOfVisits> scheduledDatesBySpecialist(Visit[] plannedVisits, String fullName){
+        ArrayList<DateOfVisits> scheduleBySpecialist = new ArrayList<>();
+        for (Visit visit : plannedVisits) {
+            if (!visit.isCompleted()){
+                if (visit.getSpecialist().getFullName().equals(fullName)){
+                    scheduleBySpecialist.add(visit.getDateOfVisit());
+                }
             }
         }
         return scheduleBySpecialist;
     }
 
-    public static ArrayList<String> scheduleByDate(PlannedVisit [] schedule, String date){
+    public static ArrayList<String> scheduleForSpecialistByDate(Visit [] schedule, String date){
         ArrayList<String> scheduleByDate = new ArrayList<>();
         for (int i = 0; i < schedule.length; i++) {
-            if(schedule[i].plannedDate(schedule[i]).toString().equals(date)) {
-                scheduleByDate.add(schedule[i].nameSpecialist(schedule[i]));
+            if(schedule[i].getDateOfVisit().getDateOfVisit().toString().equals(date)) {
+                scheduleByDate.add(schedule[i].getSpecialist().getFullName());
             }
         }
         return scheduleByDate;
