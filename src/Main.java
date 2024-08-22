@@ -1,59 +1,44 @@
-import entity.accounting.Bill;
-import entity.accounting.Salary;
-import entity.users.Patient;
-import entity.users.Specialist;
-import entity.date.DateOfVisits;
-import entity.visits.Schedule;
-import entity.visits.Visit;
+import entities.people.Employee;
+import entities.people.Mechanic;
+import entities.people.Manager;
+import entities.utils.ServiceUtils;
+import entities.vehicle.Car;
+import services.InspectionServiceCost;
+import services.RepairServiceCost;
+import services.ServiceCost;
 
-import java.util.ArrayList;
-
-import static java.time.Month.AUGUST;
-import static java.time.Month.MAY;
+import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        Patient patientFirst = new Patient("Anna Ivanova", 32);
-        Patient patientSecond = new Patient("Iwona Mendrek", 11);
-        Patient patientThird = new Patient("Karol Rodwald", 17);
+        Car car1 = new Car("Toyota", "Corolla", "VIN12345", "2024-08-21", 2015);
+        Car car2 = new Car("Honda", "Civic", "VIN54321", "2024-06-21", 2018);
+        Car[] cars = {car1, car2};
 
-        Specialist psychologist = new Specialist("Monika Kopij", "psychologist");
-        Specialist neurolog = new Specialist("Anna Maj", "neurolog");
-        Specialist speechTherapist = new Specialist("Maja Zgro", "speech therapist");
+        System.out.println(ServiceUtils.calculateCarAge(car2.getManufacturingYear()));
+        System.out.println(ServiceUtils.isValidDate(car2.getServiceDate(), "yyyy-MM-dd"));
+        System.out.println(car2.getCarType());
 
-        DateOfVisits date = new DateOfVisits();
-        date.setLocalDate();
-        DateOfVisits date1 = new DateOfVisits();
-        date1.setLocalDate();
-        DateOfVisits date2 = new DateOfVisits();
-        date2.setLocalDate();
-        DateOfVisits date3 = new DateOfVisits();
-        date3.setLocalDate();
+        Mechanic mechanic1 = new Mechanic("Adam Mickiewicz", 1600, 10, 20, "Engine Specialist", LocalDate.of(2020, 1, 15));
+        Mechanic mechanic2 = new Mechanic("Ivan Petrov", 1600, 15, 20, "Engine Specialist", LocalDate.of(2019, 2, 01));
+        Manager manager1 = new Manager("John Smith", "manager", 1000, 200, LocalDate.of(2022, 12, 05));
+        Manager manager2 = new Manager("Anna Szultz", "manager", 1100, 200, LocalDate.of(2021, 12, 05));
+        Employee[] employees = new Employee[0];
+        Employee employee = new Manager();
+        employee.addElement(employees, manager2);
+        System.out.println(employees.length);
 
-        PsychologyCenter psychologyCenter = new PsychologyCenter();
-//        psychologyCenter.bookVisit(patientFirst, psychologist, date);
-//        psychologyCenter.bookVisit(patientSecond, neurolog, date1);
-//        psychologyCenter.bookVisit(patientThird, speechTherapist, date2);
-//        psychologyCenter.bookVisit(patientThird, psychologist, date3);
-
-        Visit ivanovaToKopij = new Visit(patientFirst, psychologist, date);
-        Visit mendrekToMaj = new Visit(patientSecond, neurolog, date1);
-        Visit rodwaldToZgro = new Visit(patientThird, speechTherapist, date2);
-        Visit rodwaldToKopij = new Visit(patientThird, psychologist, date3);
-        Visit[] schedule = {ivanovaToKopij, mendrekToMaj, rodwaldToZgro, rodwaldToKopij};
-
-        psychologyCenter.completeVisit(ivanovaToKopij);
-        psychologyCenter.completeVisit(rodwaldToZgro);
-
-        psychologyCenter.showAllVisits();
-
-        System.out.println(Schedule.scheduleForSpecialistByDate(schedule, "2024-05-06"));
-
-        System.out.println(Schedule.scheduledDatesBySpecialist(schedule, "Monika Kopij"));
-
-        System.out.println(Bill.billsByMonthForSpec("Kopij", schedule, MAY));
-
-        //System.out.println(Salary.getSalaryRate(1001, schedule, AUGUST));
+//        InspectionServiceCost inspectionServiceCost = new InspectionServiceCost(car1, "Whole inspection", 60);
+//        inspectionServiceCost.performInspection(car1);
+//
+//        ServiceCost[] serviceCosts = {inspectionServiceCost};
+//
+//        CarServiceMain carServiceMain = new CarServiceMain();
+//        carServiceMain.printPayroll(employees);
+//        System.out.println(carServiceMain.calculateTotalCost(serviceCosts));
+//        carServiceMain.printInvoice(serviceCosts);
     }
 }
