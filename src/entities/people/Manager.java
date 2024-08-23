@@ -41,9 +41,4 @@ public class Manager extends Employee{
     public String toString() {
         return super.toString() + ", hire date: " + hireDate;
     }
-
-    @Override
-    public void addElement(Employee[] originalArray, Employee employee) {
-
-    }
 }

@@ -47,15 +47,17 @@ public abstract class Employee extends Person implements EmployeeManagement{
         return Double.compare(employee.baseSalary, baseSalary) == 0 && getName().equals(employee.getName());
     }
 
-    public void addElement(Employee[] originalArray, Employee employee){
+    public Employee[] addElement(Employee[] originalArray, Employee employee){
         Employee[] newArray = new Employee[originalArray.length + 1];
 
         for (int i = 0; i < originalArray.length; i++) {
             newArray[i] = originalArray[i];
         }
-
         newArray[newArray.length - 1] = employee;
-    };
+        return newArray;
+    }
+
+
 
 //    @Override
 //    public void removeEmployee(String fullName){

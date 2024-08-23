@@ -10,7 +10,7 @@ public class CarServiceMain {
         System.out.println("Welcome to the Car Service System");
     }
 
-    public double calculateTotalCost(ServiceCost[] serviceCosts) {
+    public static double calculateTotalCost(ServiceCost[] serviceCosts) {
         double totalCost = 0;
         for (ServiceCost serviceCost : serviceCosts) {
             totalCost += serviceCost.calculateCost();
@@ -18,7 +18,7 @@ public class CarServiceMain {
         return totalCost;
     }
 
-    public void printInvoice(ServiceCost[] serviceCosts) {
+    public static void printInvoice(ServiceCost[] serviceCosts) {
         for (ServiceCost serviceCost : serviceCosts) {
             System.out.println(serviceCost);
         }
@@ -35,9 +35,15 @@ public class CarServiceMain {
 
     public void printPayroll(Employee[] employees) {
         for (Employee employee : employees) {
-            System.out.println(employee);
+            System.out.println(employee.getName() + " - " + employee.getSalary());
         }
         System.out.println("Total Salary: $" + String.format("%.2f", calculateTotalSalary(employees)));
+    }
+
+    public static void printArrayEmployees(Employee[] employees){
+        for(Employee employee : employees){
+            System.out.println(employee.toString());
+        }
     }
 
     public static void carOnTheService(Car[] cars){

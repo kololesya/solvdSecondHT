@@ -4,39 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32f30238-0adb-4a06-bd20-add46aed145a" name="Changes" comment="refactoring">
-      <change afterPath="$PROJECT_DIR$/src/CarServiceMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/people/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/people/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/people/EmployeeManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/people/Manager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/people/Mechanic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/people/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/utils/ServiceUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/vehicle/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/vehicle/Inspectable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/vehicle/Insurable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/vehicle/Paintable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/vehicle/Repairable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/vehicle/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/DiscountedRepairServiceCost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/InspectionServiceCost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/RepairServiceCost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/ServiceCost.java" afterDir="false" />
+    <list default="true" id="32f30238-0adb-4a06-bd20-add46aed145a" name="Changes" comment="the right version of the home task">
+      <change afterPath="$PROJECT_DIR$/src/entities/payments/PaymentProcessing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/payments/PaymentProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarServiceMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarServiceMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PsychologyCenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/accounting/Bill.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/accounting/BillsForPeriod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/accounting/Salary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/date/DateOfVisits.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/users/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/users/Employee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/users/Patient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/users/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/users/Specialist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/visits/Schedule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/visits/Visit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/people/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/people/EmployeeManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/EmployeeManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/people/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/utils/ServiceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/utils/ServiceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/vehicle/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/vehicle/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/vehicle/Insurable.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -145,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724142467142</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="the right version of the home task">
+      <option name="closed" value="true" />
+      <created>1724328329463</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724328329463</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,6 +179,7 @@
     <MESSAGE value="insertionSort" />
     <MESSAGE value="selection sort" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="the right version of the home task" />
+    <option name="LAST_COMMIT_MESSAGE" value="the right version of the home task" />
   </component>
 </project>

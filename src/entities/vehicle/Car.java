@@ -1,12 +1,15 @@
 package entities.vehicle;
 
+import entities.utils.ServiceUtils;
+
+import java.security.Provider;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
 
-public class Car extends Vehicle implements Inspectable, Repairable, Paintable, Insurable {
+public class Car extends Vehicle implements Inspectable, Repairable, Paintable {
     private static final String CAR_TYPE = "Sedan";
     private String vinNumber;
     private String serviceDate;
@@ -17,7 +20,7 @@ public class Car extends Vehicle implements Inspectable, Repairable, Paintable, 
         try {
 
             this.vinNumber = vinNumber;
-            this.serviceDate = String.valueOf(validateAndParseDate(serviceDate));
+            this.serviceDate = String.valueOf(ServiceUtils.validateAndParseDate(serviceDate));
             this.manufacturingYear = manufacturingYear;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -36,7 +39,7 @@ public class Car extends Vehicle implements Inspectable, Repairable, Paintable, 
     }
 
     public void setServiceDate(String serviceDate) {
-        validateAndParseDate(serviceDate);
+        ServiceUtils.validateAndParseDate(serviceDate);
         this.serviceDate = serviceDate;
     }
 
@@ -92,21 +95,6 @@ public class Car extends Vehicle implements Inspectable, Repairable, Paintable, 
     @Override
     public void polish() {
         System.out.println("The car is polished.");
-    }
-
-    @Override
-    public void insure(String startDate, String endDate) {
-        System.out.println("Car insured from " + startDate + " to " + endDate);
-    }
-
-    //@Override
-    private LocalDate validateAndParseDate(String dateStr) {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        try {
-            return LocalDate.parse(dateStr, dateFormatter);
-        } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException("Please input the date with the pattern yyyy-MM-dd");
-        }
     }
 
     @Override

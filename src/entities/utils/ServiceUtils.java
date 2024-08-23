@@ -22,7 +22,16 @@ public class ServiceUtils {
         return currentYear - manufacturingYear;
     }
 
-    public static <T extends Vehicle> void vehicleSummary(T vehicle) {
-        System.out.println("Vehicle Summary: " + vehicle.toString());
+    public static LocalDate validateAndParseDate(String dateStr) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        try {
+            return LocalDate.parse(dateStr, dateFormatter);
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("Please input the date with the pattern yyyy-MM-dd");
+        }
     }
+
+//    public static <T extends Vehicle> void vehicleSummary(T vehicle) {
+//        System.out.println("Vehicle Summary: " + vehicle.toString());
+//    }
 }
