@@ -9,17 +9,21 @@ public class PaymentProcessor implements PaymentProcessing{
     private Car car;
     private InspectionServiceCost inspectionServiceCost;
     private RepairServiceCost repairServiceCost;
-    ;
-//    @Override
-//    public void processPayment(Car car, ServiceCost[] serviceCosts) {
-//        for (int i = 0; i < serviceCosts.length; i++) {
-//            if(serviceCosts[i].equals(inspectionServiceCost)){
-//                System.out.println("Оплата для заказа " + car.getVinNumber() + " на сумму $ " + inspectionServiceCost.calculateCost() + " успешно обработана.");
-//            } else if ()
-//        }
-//
-//
-//    }
+
+    @Override
+    public void processPayment(Car car, ServiceCost[] serviceCosts) {
+        for (int i = 0; i < serviceCosts.length; i++) {
+            if(serviceCosts[i].equals(inspectionServiceCost)){
+                System.out.println("Оплата для заказа " + car.getVinNumber() + " на сумму $ " + inspectionServiceCost.calculateCost() + " успешно обработана.");
+            } else if (){
+
+            } else{
+
+            }
+        }
+
+
+    }
     @Override
     public void processRefund(String orderId, double amount) {
 

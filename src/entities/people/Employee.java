@@ -4,9 +4,7 @@ public abstract class Employee extends Person implements EmployeeManagement{
     protected double baseSalary;
     private String specialty;
 
-    public Employee(){
-
-    }
+    public Employee(){    }
 
     protected Employee(String name, String specialty, double salary) {
         super(name);
