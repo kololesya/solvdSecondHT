@@ -5,7 +5,6 @@ import static entities.utils.ServiceUtils.findEmployeeIndexByName;
 public class Department implements EmployeeManagement{
     private String departmentName;
     private Employee[] employees;
-    private int employeeCount;
 
     public Department(String departmentName) {
         this.departmentName = departmentName;
@@ -63,7 +62,6 @@ public class Department implements EmployeeManagement{
 
         return newArray;
     }
-
 
     @Override
     public Employee[] removeEmployee(Employee[] employees, String fullName) {

@@ -91,8 +91,8 @@ public class Main {
 
         Department[] departments = new Department[0];
 
-        carService.addDepartmentToService(departments, departmentRepairAndInspection);
-        //carService.addDepartmentToService(departments, departmentManagement);
+        departments = carService.addDepartmentToService(departments, departmentRepairAndInspection);
+        departments = carService.addDepartmentToService(departments, departmentManagement);
         carService.setDepartments(departments);
 
         System.out.println(Arrays.toString(carService.getDepartments()));

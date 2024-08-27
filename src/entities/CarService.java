@@ -2,10 +2,13 @@ package entities;
 
 import entities.people.Department;
 import entities.people.Employee;
+import entities.service.Service;
 import entities.vehicle.Car;
 import services.ServiceCost;
 
 public class CarService {
+
+    private Service[] services;
     private ServiceCost[] serviceCosts;
 
     private Department[] departments;

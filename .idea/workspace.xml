@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f30238-0adb-4a06-bd20-add46aed145a" name="Changes" comment="PaymentProcessor">
-      <change afterPath="$PROJECT_DIR$/src/entities/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/payments/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/payments/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/people/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/service/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CarServiceMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/CarService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/CarService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/payments/PaymentProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/payments/PaymentProcessing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/payments/PaymentProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/payments/PaymentProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/people/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/people/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/people/EmployeeManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/EmployeeManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/utils/ServiceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/utils/ServiceUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/InspectionServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/InspectionServiceCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/people/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/RepairServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/RepairServiceCost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ServiceCost.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +28,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectId" id="2kNAfMQHnCTXX95iwkH8bWFeJpF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -211,7 +201,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/entities/people/Department.java</url>
-          <line>68</line>
+          <line>66</line>
           <properties class="entities.people.Department" method="removeEmployee">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

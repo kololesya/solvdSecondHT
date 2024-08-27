@@ -3,7 +3,6 @@ package entities.payments;
 import entities.Logger;
 
 public class PaymentProcessor implements PaymentProcessing{
-
     private double calculateTotalAmount(Order order) {
         double totalAmount = 0.0;
         for (OrderItem item : order.getOrderItems()) {

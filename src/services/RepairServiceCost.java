@@ -1,7 +1,6 @@
 package services;
 
 import entities.vehicle.Car;
-import entities.vehicle.Repairable;
 
 public class RepairServiceCost extends ServiceCost {
 
