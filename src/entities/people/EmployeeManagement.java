@@ -1,9 +1,9 @@
 package entities.people;
 
-public interface EmployeeManagement {
+public interface EmployeeManagement <T>{
 
-    Employee[] addElement(Employee[] originalArray, Employee employee);
+    Employee[] addEmployeeToDepartment(Employee[] originalArray, Employee employee);
+    Employee[] removeEmployee(Employee[] employees, String fullName);
 
-
-    //void removeEmployee(String fullName);
+    double calculateTotalSalary();
 }

@@ -1,6 +1,6 @@
 package entities.people;
 
-public abstract class Employee extends Person implements EmployeeManagement{
+public abstract class Employee extends Person {
     protected double baseSalary;
     private String specialty;
 
@@ -44,21 +44,4 @@ public abstract class Employee extends Person implements EmployeeManagement{
         Employee employee = (Employee) obj;
         return Double.compare(employee.baseSalary, baseSalary) == 0 && getName().equals(employee.getName());
     }
-
-    public Employee[] addElement(Employee[] originalArray, Employee employee){
-        Employee[] newArray = new Employee[originalArray.length + 1];
-
-        for (int i = 0; i < originalArray.length; i++) {
-            newArray[i] = originalArray[i];
-        }
-        newArray[newArray.length - 1] = employee;
-        return newArray;
-    }
-
-
-
-//    @Override
-//    public void removeEmployee(String fullName){
-//
-//    };
 }

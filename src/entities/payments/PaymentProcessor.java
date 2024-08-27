@@ -1,33 +1,41 @@
 package entities.payments;
 
-import entities.vehicle.Car;
-import services.InspectionServiceCost;
-import services.RepairServiceCost;
-import services.ServiceCost;
+import entities.Logger;
 
 public class PaymentProcessor implements PaymentProcessing{
-    private Car car;
-    private InspectionServiceCost inspectionServiceCost;
-    private RepairServiceCost repairServiceCost;
 
-    @Override
-    public void processPayment(Car car, ServiceCost[] serviceCosts) {
-        for (int i = 0; i < serviceCosts.length; i++) {
-            if(serviceCosts[i].equals(inspectionServiceCost)){
-                System.out.println("Оплата для заказа " + car.getVinNumber() + " на сумму $ " + inspectionServiceCost.calculateCost() + " успешно обработана.");
-            } else if (){
-
-            } else{
-
+    private double calculateTotalAmount(Order order) {
+        double totalAmount = 0.0;
+        for (OrderItem item : order.getOrderItems()) {
+            if (item != null) {
+                totalAmount += item.getPrice();
             }
         }
+        return totalAmount;
+    }
+    public void processPayment(Order order){
+        if (order == null) {
+            Logger.error("Cannot process payment: order is null.");
+            return;
+        }
 
+        double totalAmount = calculateTotalAmount(order);
+        Logger.info("Processing payment for Order ID: " + order.getOrderId() + " | Total Amount: $" + totalAmount);
+
+        Logger.info("Payment of $" + totalAmount + " has been successfully processed for Order ID: " + order.getOrderId());
 
     }
-    @Override
-    public void processRefund(String orderId, double amount) {
+    public void processRefund(Order order){
+        if (order == null) {
+            Logger.error("Cannot process refund: order is null.");
+            return;
+        }
 
+        double totalAmount = calculateTotalAmount(order);
+        Logger.info("Processing refund for Order ID: " + order.getOrderId() + " | Total Amount: $" + totalAmount);
 
-        System.out.println("Возврат средств для заказа " + orderId + " на сумму $ " + amount + " успешно выполнен.");
+        Logger.info("Refund of $" + totalAmount + " has been successfully processed for Order ID: " + order.getOrderId());
     }
+
+
 }

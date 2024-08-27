@@ -2,9 +2,12 @@ package services;
 
 import entities.vehicle.Car;
 
+import java.time.LocalDate;
+
 public abstract class ServiceCost {
-    protected Car car;
-    protected String serviceName;
+    private Car car;
+    private String serviceName;
+    private LocalDate serviceDate;
     protected double baseCost;
 
     public ServiceCost(Car car, String serviceName, double baseCost) {

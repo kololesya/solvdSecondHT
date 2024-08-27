@@ -3,7 +3,6 @@ package services;
 import entities.vehicle.Car;
 
 public class InspectionServiceCost extends ServiceCost {
-    private Car car;
     private int ageOfCar;
 
     public InspectionServiceCost(Car car, String serviceName, double baseCost) {
