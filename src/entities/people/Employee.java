@@ -4,8 +4,6 @@ public abstract class Employee extends Person {
     protected double baseSalary;
     private String specialty;
 
-    public Employee(){    }
-
     protected Employee(String name, String specialty, double salary) {
         super(name);
         this.specialty = specialty;

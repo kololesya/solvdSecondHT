@@ -1,14 +1,20 @@
 package entities.utils;
 
-import entities.Logger;
+import entities.CarServiceException;
+import entities.SalaryCalculable;
 import entities.payments.Order;
 import entities.payments.OrderItem;
+import entities.people.Department;
 import entities.people.Employee;
 import entities.vehicle.Car;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.*;
+
+import static entities.Logger.error;
+import static entities.Logger.info;
 
 public class ServiceUtils {
     public static boolean isValidDate(String dateStr, String format) {
@@ -25,7 +31,7 @@ public class ServiceUtils {
         int currentYear = LocalDate.now().getYear();
         int manufacturingYear = car.getManufacturingYear();
         int age = currentYear - manufacturingYear;
-        Logger.info("Calculated age for car with VIN " + car.getVinNumber() + " is " + age + " years");
+        info("Calculated age for car with VIN " + car.getVinNumber() + " is " + age + " years");
         return age;
     }
 
@@ -64,10 +70,6 @@ public class ServiceUtils {
         }
     }
 
-//    public static <T extends Vehicle> void vehicleSummary(T vehicle) {
-//        System.out.println("Vehicle Summary: " + vehicle.toString());
-//    }
-
     public static OrderItem findMostExpensiveItem(Order order) {
         OrderItem mostExpensiveItem = null;
         double highestPrice = 0.0;
@@ -78,9 +80,96 @@ public class ServiceUtils {
             }
         }
         if (mostExpensiveItem != null) {
-            Logger.info("Most expensive item in Order ID: " + order.getOrderId() + " is " +
+            info("Most expensive item in Order ID: " + order.getOrderId() + " is " +
                     mostExpensiveItem.getName() + " with price $" + mostExpensiveItem.getPrice());
         }
         return mostExpensiveItem;
+    }
+
+    public static <T> Set<T> addElementToSet(Set<T> set, T element) {
+        try {
+            if (element == null) {
+                throw new CarServiceException("Cannot add a null element to the set.");
+            }
+
+            if (element instanceof Employee) {
+                Employee employee = (Employee) element;
+                if (!isValidEmployee(employee)) {
+                    throw new CarServiceException("Cannot add an employee with invalid data: " + employee);
+                }
+            }
+
+            if (element instanceof Department) {
+                Department department = (Department) element;
+                if (!isValidDepartment(department)) {
+                    throw new CarServiceException("Cannot add a department with invalid data: " + department);
+                }
+            }
+
+            set.add(element);
+
+        } catch (CarServiceException e) {
+            error("Error adding element: " + e.getMessage());
+        } finally {
+            info("Attempted to add a new element.");
+        }
+        return set;
+    }
+
+    public static <T> Set<T> removeElementFromSet(Set<T> set, T element) {
+        Set<T> newSet = new HashSet<>();
+
+        try {
+            if (set == null) {
+                throw new NullPointerException("The set cannot be null.");
+            }
+
+            if (element == null) {
+                throw new IllegalArgumentException("The element to remove cannot be null.");
+            }
+
+            if (element instanceof Employee) {
+                Employee employee = (Employee) element;
+                if (!isValidEmployee(employee)) {
+                    throw new CarServiceException("Cannot remove an employee with invalid data: " + employee);
+                }
+            }
+
+            if (element instanceof Department) {
+                Department department = (Department) element;
+                if (!isValidDepartment(department)) {
+                    throw new CarServiceException("Cannot remove a department with invalid data: " + department);
+                }
+            }
+
+            newSet.addAll(set);
+
+            if (!newSet.remove(element)) {
+                throw new IllegalArgumentException("The element to remove is not found in the set.");
+            }
+
+        } catch (NullPointerException | IllegalArgumentException | CarServiceException e) {
+            error("Error: " + e.getMessage());
+            return set;
+        } finally {
+            info("Attempted to remove an element.");
+        }
+
+        return newSet;
+    }
+
+
+    public static void printTotalSalary(SalaryCalculable entity) {
+        System.out.println("Total Salary: " + entity.calculateTotalSalary());
+    }
+
+    public static boolean isValidEmployee(Employee employee) {
+        return employee.getName() != null && !employee.getName().trim().isEmpty()
+                && employee.getSalary() > 0;
+    }
+
+    private static boolean isValidDepartment(Department department) {
+        return department.getDepartmentName() != null && !department.getDepartmentName().trim().isEmpty()
+                && department.getEmployees() != null && !department.getEmployees().isEmpty();
     }
 }

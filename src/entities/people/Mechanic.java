@@ -37,12 +37,4 @@ public class Mechanic extends Employee{
     public String toString() {
         return super.toString() + ", specialty: " + getSpecialty() + ", hire date: " + hireDate;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!super.equals(obj)) return false;
-        Mechanic other = (Mechanic) obj;
-        return getSpecialty().equals(other.getSpecialty()) && hireDate.equals(other.hireDate);
-    }
 }

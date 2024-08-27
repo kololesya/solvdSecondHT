@@ -6,10 +6,6 @@ public class Manager extends Employee{
     private double bonus;
     private LocalDate hireDate;
 
-    public Manager(){
-
-    }
-
     public Manager(String name, String specialty, double baseSalary, double bonus, LocalDate hireDate) {
         super(name, specialty, baseSalary);
         this.bonus = bonus;
@@ -25,17 +21,6 @@ public class Manager extends Employee{
     public double calculateSalary() {
         return baseSalary + bonus;
     }
-
-
-    public void addElement(Employee[] managers, Manager manager){
-        Employee[] newArray = new Employee[managers.length + 1];
-
-        for (int i = 0; i < managers.length; i++) {
-            newArray[i] = managers[i];
-        }
-
-        newArray[newArray.length - 1] = manager;
-    };
 
     @Override
     public String toString() {
