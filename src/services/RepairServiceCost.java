@@ -1,12 +1,22 @@
 package services;
 
+import entities.Order.Order;
 import entities.vehicle.Car;
 
-public class RepairServiceCost extends ServiceCost {
+import java.time.LocalDate;
 
+public class RepairServiceCost extends ServiceCost {
     private double partsCost;
     private double laborHours;
     private double laborRate;
+
+    public RepairServiceCost(Car car, String serviceName, double baseCost, LocalDate localDate,
+                             Order order, double laborHours, double laborRate) {
+        super(car, serviceName, baseCost, localDate, order);
+        this.partsCost = order.calculateTotalItemsCost();
+        this.laborHours = laborHours;
+        this.laborRate = laborRate;
+    }
 
     public double getPartsCost() {
         return partsCost;
@@ -32,16 +42,8 @@ public class RepairServiceCost extends ServiceCost {
         this.laborRate = laborRate;
     }
 
-    public RepairServiceCost(Car car, String serviceName, double baseCost, double partsCost, double laborHours, double laborRate) {
-        super(car, serviceName, baseCost);
-        this.partsCost = partsCost;
-        this.laborHours = laborHours;
-        this.laborRate = laborRate;
-    }
-
     @Override
     public double calculateCost() {
-        double laborCost = laborHours * laborRate;
-        return baseCost + partsCost + laborCost;
+        return baseCost + partsCost + (laborHours * laborRate);
     }
 }

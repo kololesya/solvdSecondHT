@@ -1,11 +1,13 @@
 import entities.CarService;
 import entities.CarServiceException;
 import entities.Logger;
-import entities.payments.Order;
-import entities.payments.OrderItem;
+import entities.Order.Order;
+import entities.Order.OrderItem;
+import entities.payments.PaymentProcessor;
 import entities.people.*;
-import entities.utils.ServiceUtils;
 import entities.vehicle.Car;
+import services.DiscountedRepairServiceCost;
+import services.InspectionServiceCost;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -39,70 +41,49 @@ public class Main {
         repairAndInspectionDepartment.addEmployee(mechanic2);
         repairAndInspectionDepartment.addEmployee(manager1);
         repairAndInspectionDepartment.addEmployee(mechanic3);
+        repairAndInspectionDepartment.removeEmployee(manager2);
 
         Department tireDepartment = new Department("Tire department", employees1);
         tireDepartment.addEmployee(mechanic1);
         tireDepartment.addEmployee(manager2);
 
-        addElementToSet(departments, repairAndInspectionDepartment);
-        addElementToSet(departments, tireDepartment);
-
-        repairAndInspectionDepartment.removeEmployee(mechanic3);
-        repairAndInspectionDepartment.removeEmployee(manager2);
-        repairAndInspectionDepartment.removeEmployee(mechanic1);
+        carService.addDepartment(repairAndInspectionDepartment);
+        carService.addDepartment(tireDepartment);
 
         carService.removeDepartment(tireDepartment);
 
-        printTotalSalary(tireDepartment);
-        printTotalSalary(repairAndInspectionDepartment);
-//        carServiceMain.printPayroll(employees);
-//
-//        System.out.println(carServiceMain.calculateTotalSalary(employees));
-//        InspectionServiceCost inspectionToyota = new InspectionServiceCost(car1, "Whole inspection", 60);
-//        inspectionToyota.performInspection(car1);
-//        double x = inspectionToyota.calculateCost();
-//
-//        InspectionServiceCost inspectionHonda = new InspectionServiceCost(car2, "Engine inspection", 30);
-//        inspectionToyota.performInspection(car2);
-//        double y = inspectionHonda.calculateCost();
-//        System.out.println(x + " " + y);
-//
-//        ServiceCost[] serviceCosts = {inspectionToyota, inspectionHonda};
-//        System.out.println(CarServiceMain.calculateTotalCost(serviceCosts));
-//        CarServiceMain.printInvoice(serviceCosts);
-//
-//        System.out.println("Оплата для заказа " + car1.getVinNumber() + " на сумму $ " + inspectionHonda.calculateCost() + " успешно обработана.");
-//
-//        PaymentProcessor paymentProcessor = new PaymentProcessor();
-//        paymentProcessor.processPayment(car1, serviceCosts);
+        carService.printPayroll();
+
+
+        InspectionServiceCost inspectionToyota = new InspectionServiceCost(car1, "Whole inspection", 60);
+        inspectionToyota.performInspection(car1);
+        double x = inspectionToyota.calculateCost();
+
+        InspectionServiceCost inspectionHonda = new InspectionServiceCost(car2, "Engine inspection", 30);
+        inspectionToyota.performInspection(car2);
+        double y = inspectionHonda.calculateCost();
+        System.out.println(x + y);
+
+        DiscountedRepairServiceCost discount = new DiscountedRepairServiceCost(car2, "Engine inspection", inspectionHonda, 15);
+        double z = discount.calculateCost();
+        System.out.println(z);
+
+        PaymentProcessor paymentProcessor = new PaymentProcessor(discount);
+        paymentProcessor.processPayment();
 
         Customer customer = new Customer("John Doe", 555123478);
 
         Order order1 = new Order("ORD001", LocalDate.now(), customer, car1);
 
-        OrderItem item1 = new OrderItem("0001", "a", 150);
-        OrderItem item2 = new OrderItem("0002", "b", 200);
-        OrderItem item3 = new OrderItem("0003", "c", 300);
+        OrderItem item1 = new OrderItem("0001", "Oil Change", 150);
+        OrderItem item2 = new OrderItem("0002", "Oil Change", 150);
+        OrderItem item3 = new OrderItem("0003", "Disk replacement", 300);
 
-//        addElementToSet(order1, item1);
-//        order1.addOrderItem(item2);
-//        order1.addOrderItem(item3);
+        order1.addOrderItem(item1);
+        order1.addOrderItem(item2);
+        order1.addOrderItem(item3);
 
-        for (OrderItem item : order1.getOrderItems()) {
-            if (item != null) {
-                Logger.info("Item: " + item.getName() + ", price: $" + item.getPrice());
-            }
-        }
-
-//        System.out.println(order1.calculateTotalExpenses());
-//        System.out.println(departmentRepairAndInspection.calculateTotalSalary());
-//
-//        Department[] departments = {departmentRepairAndInspection};
-
-        //departments = carService.addDepartmentToService(departments, departmentRepairAndInspection);
-        //departments = carService.addDepartmentToService(departments, departmentManagement);
-
-        //departments = ServiceUtils.addElementToArray(departments, departmentManagement);
+        System.out.println(order1.getOrderItems());
 
         Logger.info("Application finished.");
     }

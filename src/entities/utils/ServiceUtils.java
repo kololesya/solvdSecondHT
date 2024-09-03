@@ -2,8 +2,8 @@ package entities.utils;
 
 import entities.CarServiceException;
 import entities.SalaryCalculable;
-import entities.payments.Order;
-import entities.payments.OrderItem;
+import entities.Order.Order;
+import entities.Order.OrderItem;
 import entities.people.Department;
 import entities.people.Employee;
 import entities.vehicle.Car;
@@ -15,6 +15,7 @@ import java.util.*;
 
 import static entities.Logger.error;
 import static entities.Logger.info;
+import static entities.Order.Order.isValidOrder;
 
 public class ServiceUtils {
     public static boolean isValidDate(String dateStr, String format) {
@@ -116,6 +117,33 @@ public class ServiceUtils {
         return set;
     }
 
+    public static <T> List<T> addElementToList(List<T> list, T element) {
+        try {
+            if (element == null) {
+                throw new CarServiceException("Cannot add a null element to the list.");
+            }
+
+            if (element instanceof Order) {
+                Order order = (Order) element;
+                if (!isValidOrder(order)) {
+                    throw new CarServiceException("Cannot add an order with invalid data: " + order);
+                }
+            }
+//
+//            if (list.contains(element)) {
+//                throw new CarServiceException("Cannot add duplicate element: " + element);
+//            }
+
+            list.add(element);
+
+        } catch (CarServiceException e) {
+            error("Error adding element: " + e.getMessage());
+        } finally {
+            info("Attempted to add a new element.");
+        }
+        return list;
+    }
+
     public static <T> Set<T> removeElementFromSet(Set<T> set, T element) {
         Set<T> newSet = new HashSet<>();
 
@@ -172,4 +200,6 @@ public class ServiceUtils {
         return department.getDepartmentName() != null && !department.getDepartmentName().trim().isEmpty()
                 && department.getEmployees() != null && !department.getEmployees().isEmpty();
     }
+
+
 }

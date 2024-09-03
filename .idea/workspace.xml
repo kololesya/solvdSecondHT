@@ -4,18 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32f30238-0adb-4a06-bd20-add46aed145a" name="Changes" comment="refactoring">
-      <change afterPath="$PROJECT_DIR$/src/entities/CarServiceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/SalaryCalculable.java" afterDir="false" />
+    <list default="true" id="32f30238-0adb-4a06-bd20-add46aed145a" name="Changes" comment="refactoring CarService and Department which have Set&lt;&gt;, not Array">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/CustomLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Order/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/payments/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/payments/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/people/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/people/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/people/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/people/Mechanic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/people/Mechanic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/payments/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Order/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/payments/OrderItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/payments/PaymentProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/payments/PaymentProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/payments/PaymentProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/payments/PaymentProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/utils/ServiceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/utils/ServiceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/DiscountedRepairServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DiscountedRepairServiceCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/RepairServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/RepairServiceCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ServiceCost.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +40,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2kNAfMQHnCTXX95iwkH8bWFeJpF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -156,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724766783584</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactoring CarService and Department which have Set&lt;&gt;, not Array">
+      <option name="closed" value="true" />
+      <created>1724797460492</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724797460492</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,22 +228,7 @@
     <MESSAGE value="3d homework" />
     <MESSAGE value="PaymentProcessor" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="refactoring CarService and Department which have Set&lt;&gt;, not Array" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring CarService and Department which have Set&lt;&gt;, not Array" />
   </component>
 </project>

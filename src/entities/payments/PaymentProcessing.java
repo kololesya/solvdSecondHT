@@ -1,6 +1,8 @@
 package entities.payments;
 
+import entities.Order.Order;
+
 public interface PaymentProcessing {
-    void processPayment(Order order);
-    void processRefund(Order order);
+    void processPayment();
+    void processRefund();
 }
